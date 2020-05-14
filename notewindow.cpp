@@ -1,9 +1,11 @@
 #include "notewindow.h"
 #include "ui_notewindow.h"
+
 extern int yearG;
 extern int date[3];
 extern QMap <QString, QString> notes;
 extern QMap <QString, int> impNote;
+
 NoteWindow::NoteWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NoteWindow)
@@ -12,12 +14,12 @@ NoteWindow::NoteWindow(QWidget *parent) :
     QString s1,s2,s3,txt,s4,s5,s6;
     txt = "Заметка на ";
     if (date[0] <10){
-       s1 = "0" + s1.setNum(date[0]);
+        s1 = "0" + s1.setNum(date[0]);
     } else {
         s1.setNum(date[0]);
     }
     if (date[1] <10){
-       s2 = "0" + s2.setNum(date[1]);
+        s2 = "0" + s2.setNum(date[1]);
     } else {
         s2.setNum(date[1]);
     }
@@ -36,11 +38,9 @@ NoteWindow::~NoteWindow()
     delete ui;
 }
 
-
-
 void NoteWindow::on_btnNoteCancel_clicked()
 {
-   this->close();
+    this->close();
 }
 
 void NoteWindow::on_btnSaveNote_clicked()
