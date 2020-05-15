@@ -12,5 +12,6 @@
         <file>img/9.jpg</file>
         <file>img/10.jpg</file>
         <file>img/11.jpg</file>
+        <file>img/icon.ico</file>
     </qresource>
 </RCC>

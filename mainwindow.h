@@ -14,7 +14,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    int getDay(int, int, int);
+    int getWeekDay(int, int, int);
+    bool checkBis();
 
 private slots:
     void on_btnYear_clicked();

@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Year</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="src.qrc">
+    <normaloff>:/img/icon.ico</normaloff>:/img/icon.ico</iconset>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -32,7 +36,7 @@
     <item row="1" column="0">
      <widget class="QPushButton" name="btnGetYear">
       <property name="text">
-       <string>Сохранить</string>
+       <string>Выбрать</string>
       </property>
      </widget>
     </item>
@@ -59,6 +63,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="src.qrc"/>
+ </resources>
  <connections/>
 </ui>

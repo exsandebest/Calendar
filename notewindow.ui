@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Note</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="src.qrc">
+    <normaloff>:/img/icon.ico</normaloff>:/img/icon.ico</iconset>
+  </property>
   <widget class="QTextEdit" name="txtNote">
    <property name="geometry">
     <rect>
@@ -106,6 +110,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="src.qrc"/>
+ </resources>
  <connections/>
 </ui>

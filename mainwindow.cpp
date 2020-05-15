@@ -33,14 +33,6 @@ MainWindow::~MainWindow()
 }
 
 
-int MainWindow::getDay(int day, int mon, int year) {
-    int a = (14 - mon) / 12;
-    int y = year - a;
-    int m = mon + 12 * a - 2;
-    int r = ((7000 + (day + y + (y/4) - (y/100) + (y/400) + (31*m)/12))%7);
-    return r==0?7:r;
-}
-
 
 void MainWindow :: btnDayClicked(){
     QObject* btn = sender();
@@ -74,15 +66,15 @@ void MainWindow :: btnInfoClicked(){
     QDesktopServices::openUrl(QUrl("https://ru.wikipedia.org/wiki/"+s+"_год"));
 }
 
-int getWeekDay(int day, int mon, int year) {
-    int a = (14-mon)/12;
-    int y = year-a;
-    int m = mon+12*a-2;
-    int r = ((7000+(day+y+(y/4)-(y/100) + (y/400) +(31*m)/12))%7);
-    return r==0?7:r;
+int MainWindow::getWeekDay(int day, int mon, int year) {
+    int a = (14 - mon)/12;
+    int y = year - a;
+    int m = mon + 12*a - 2;
+    int r = ((7000 + (day + y + (y/4) - (y/100) + (y/400) + (31*m)/12))%7);
+    return r == 0 ? 7 : r;
 }
 
-bool checkBis(){
+bool MainWindow::checkBis(){
     bool bis = false;
     if (yearG%400 == 0){
         bis = true;
@@ -104,6 +96,7 @@ void MainWindow::on_btnYear_clicked()
     } else if (flagG == 1){
 
     } else {
+        this->showMaximized();
         QString animalLbl[12] = {"Обезьяны", "Петуха", "Собаки", "Свиньи", "Крысы", "Быка", "Тигра", "Кролика", "Дракона" , "Змеи", "Лошади", "Овцы"};
         int mon[12] = {31, 28,31,30,31,30,31,31,30,31,30,31};
         QString monlbl[12] = {"Январь", "Ферваль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
@@ -197,10 +190,7 @@ void MainWindow::on_btnYear_clicked()
                             btn->setFlat(true);
                             if (weekDay == 7 || weekDay == 6 ){
                                 btn->setStyleSheet("color:#FF4500; font:bold;");
-                            }
-                            if (k == qrand()%30 && weekDay != 7 && weekDay !=6){
-                                btn->setStyleSheet("color:#FF4500; font:bold");
-                                holidays++;
+                                ++holidays;
                             }
                             QString s1,s2,s3;
                             s1.setNum(k);
@@ -256,7 +246,7 @@ void MainWindow::on_btnYear_clicked()
             }
             QString s;
             s.setNum(holidays);
-            ui->lblHol->setText("Кол-во праздников: "+s);
+            ui->lblHol->setText("Кол-во выходных: "+s);
             ui->lblHol->setStyleSheet("color:rgb(255, 153, 0)");
             ui->lblHol->setAlignment(Qt::AlignCenter);
         }
